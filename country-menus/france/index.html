@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>French Cuisine - La Belle Vie</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23722F37'/%3E%3Ctext x='50' y='72' font-size='60' text-anchor='middle' fill='%23C9A96E' font-family='Georgia,serif' font-weight='900'%3EL%3C/text%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23722F37'/%3E%3Ctext x='50' y='72' font-size='60' text-anchor='middle' fill='%23C9A96E' font-family='Georgia,serif' font-weight='900'%3EL%3C/text%3E%3C/svg%3E">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../css/style.css">
+
+    <style>
+        /* ===== ADDITIONAL FRENCH CUISINE PAGE STYLES ===== */
+
+        .country-hero {
+            position: relative;
+            overflow: hidden;
+            padding: 100px 0 60px;
+            background: linear-gradient(135deg, #2d3436 0%, #002395 100%) !important;
+            color: white;
+        }
+
+        .country-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1533777324565-a040eb52facd?w=1920&q=80') center/cover;
+            opacity: 0.12;
+            animation: heroZoomSlow 25s ease-in-out infinite alternate;
+        }
+
+        @keyframes heroZoomSlow {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+            100% { transform: scale(1.15); }
+        }
+
+        .country-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .country-hero h1 {
+            color: #ffffff !important;
+            text-shadow: 0 2px 30px rgba(0,0,0,0.4);
+            font-size: 4rem;
+            font-weight: 900;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .country-hero h1 span {
+            color: #ed2939 !important;
+        }
+
+        .country-hero p {
+            color: rgba(255,255,255,0.95) !important;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+            font-size: 1.4rem;
+        }
+
+        .country-hero .flag-big {
+            font-size: 4rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* Card Styles */
+        .french-card {
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border: none;
+            border-radius: 16px;
+            overflow: hidden;
+            background: white;
+            height: 100%;
+            position: relative;
+        }
+
+        .french-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 16px;
+            padding: 2px;
+            background: linear-gradient(145deg, #002395, #ed2939);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        .french-card:hover::before {
+            opacity: 1;
+        }
+
+        .french-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 25px 70px rgba(0,0,0,0.15);
+        }
+
+        .french-card .card-img-top {
+            height: 220px;
+            object-fit: cover;
+            transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .french-card:hover .card-img-top {
+            transform: scale(1.15);
+        }
+
+        .french-card .card-body {
+            padding: 25px 30px;
+        }
+
+        .french-card .card-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: #2D2D2D;
+            transition: color 0.3s ease;
+        }
+
+        .french-card:hover .card-title {
+            color: #002395;
+        }
+
+        .french-card .card-text {
+            color: #6b6b6b;
+            font-size: 0.95rem;
+        }
+
+        .french-card .card-tag {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 5px 16px;
+            background: linear-gradient(135deg, #002395, #ed2939);
+            color: white;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .french-card:hover .card-tag {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(0, 35, 149, 0.3);
+        }
+
+        .btn-outline-gold {
+            padding: 10px 30px;
+            border-radius: 50px;
+            border: 2px solid #C9A96E;
+            background: transparent;
+            color: #722F37;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            text-decoration: none;
+        }
+
+        .btn-outline-gold:hover {
+            background: #C9A96E;
+            color: #1a1a1a;
+            transform: translateX(-5px);
+            box-shadow: 0 10px 30px rgba(201, 169, 110, 0.3);
+        }
+
+        .floating-badge {
+            animation: floatBadge 4s ease-in-out infinite;
+        }
+
+        @keyframes floatBadge {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @media (max-width: 768px) {
+            .country-hero h1 {
+                font-size: 2.8rem !important;
+            }
+
+            .country-hero p {
+                font-size: 1.1rem !important;
+            }
+
+            .french-card .card-img-top {
+                height: 180px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .country-hero h1 {
+                font-size: 2.2rem !important;
+            }
+
+            .country-hero p {
+                font-size: 1rem !important;
+            }
+
+            .french-card .card-img-top {
+                height: 160px;
+            }
+
+            .french-card .card-body {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body class="page-france">
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="navbar navbar-expand-lg" id="navbar">
+        <div class="container">
+
+            <a href="../../index.html" class="nav-logo">
+                <i class="fas fa-utensils"></i> La Belle Vie
+            </a>
+
+            <button class="navbar-toggler"
+                    id="navToggle"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navMenu">
+
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navMenu">
+
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a href="../../index.html" class="nav-link">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="../../about.html" class="nav-link">About</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+
+                        <a class="nav-link dropdown-toggle"
+                           href="#"
+                           id="menuDropdown"
+                           role="button"
+                           data-bs-toggle="dropdown"
+                           aria-expanded="false">
+
+                            Menus
+                        </a>
+
+                        <ul class="dropdown-menu" aria-labelledby="menuDropdown">
+
+                            <li>
+                                <a class="dropdown-item" href="../../menu.html">
+                                    🍽️ Main Menu
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="../../friends-menu/index.html">
+                                    🤝 Friends Menu
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="../../italian-menu/index.html">
+                                    🇮🇹 Italian Menu
+                                </a>
+                            </li>
+
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="../../specials.html">
+                                    ⭐ Daily Specials
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="../../events.html" class="nav-link">Events</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="../../gallery.html" class="nav-link">Gallery</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="../../reservations.html" class="nav-link">Reservations</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="../../blog.html" class="nav-link">Blog</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="../../faq.html" class="nav-link">FAQ</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="../../contact.html" class="nav-link">Contact</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== PAGE HEADER ===== -->
+    <section class="country-hero"
+             style="background: linear-gradient(135deg, #2d3436 0%, #002395 100%); padding:100px 0 60px; color:white;">
+
+        <div class="container">
+
+            <span class="flag-big scroll-3d">🇫🇷</span>
+
+            <h1 class="scroll-3d">
+                French <span>Cuisine</span>
+            </h1>
+
+            <p class="scroll-3d">
+                Elegant French dishes with rich flavors and techniques
+            </p>
+
+        </div>
+    </section>
+
+    <!-- ===== CUISINE GRID ===== -->
+    <section class="py-5">
+
+        <div class="container">
+
+            <div class="row g-4">
+
+                <!-- French Appetizers -->
+                <div class="col-md-6 col-lg-4 scroll-3d">
+
+                    <a href="appetizers.html" class="text-decoration-none">
+
+                        <div class="french-card card hover-3d shadow-sm">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1533777324565-a040eb52facd?w=400&h=250&fit=crop&crop=center"
+                                class="card-img-top"
+                                alt="French Appetizers">
+
+                            <div class="card-body">
+
+                                <h5 class="card-title">
+                                    🥖 French Appetizers
+                                </h5>
+
+                                <p class="card-text">
+                                    Escargots, Foie Gras, Soupe à l'Oignon
+                                </p>
+
+                                <span class="card-tag">
+                                    Explore
+                                </span>
+
+                            </div>
+                        </div>
+
+                    </a>
+                </div>
+
+                <!-- Main Courses -->
+                <div class="col-md-6 col-lg-4 scroll-3d"
+                     style="animation-delay:0.05s">
+
+                    <a href="main-courses.html" class="text-decoration-none">
+
+                        <div class="french-card card hover-3d shadow-sm">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=250&fit=crop&crop=center"
+                                class="card-img-top"
+                                alt="French Main">
+
+                            <div class="card-body">
+
+                                <h5 class="card-title">
+                                    🍗 Main Courses
+                                </h5>
+
+                                <p class="card-text">
+                                    Coq au Vin, Bouillabaisse, Ratatouille
+                                </p>
+
+                                <span class="card-tag">
+                                    Explore
+                                </span>
+
+                            </div>
+                        </div>
+
+                    </a>
+                </div>
+
+                <!-- French Pastries -->
+                <div class="col-md-6 col-lg-4 scroll-3d"
+                     style="animation-delay:0.1s">
+
+                    <a href="pastries.html" class="text-decoration-none">
+
+                        <div class="french-card card hover-3d shadow-sm">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1533777324565-a040eb52facd?w=400&h=250&fit=crop&crop=center"
+                                class="card-img-top"
+                                alt="French Pastries">
+
+                            <div class="card-body">
+
+                                <h5 class="card-title">
+                                    🥐 French Pastries
+                                </h5>
+
+                                <p class="card-text">
+                                    Croissants, Pain au Chocolat, Macarons
+                                </p>
+
+                                <span class="card-tag">
+                                    Explore
+                                </span>
+
+                            </div>
+                        </div>
+
+                    </a>
+                </div>
+
+                <!-- French Cheeses -->
+                <div class="col-md-6 col-lg-4 scroll-3d"
+                     style="animation-delay:0.15s">
+
+                    <a href="cheese.html" class="text-decoration-none">
+
+                        <div class="french-card card hover-3d shadow-sm">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1452195100486-9cc805987862?w=400&h=250&fit=crop&crop=center"
+                                class="card-img-top"
+                                alt="French Cheese">
+
+                            <div class="card-body">
+
+                                <h5 class="card-title">
+                                    🧀 French Cheeses
+                                </h5>
+
+                                <p class="card-text">
+                                    Camembert, Brie, Roquefort, Comté
+                                </p>
+
+                                <span class="card-tag">
+                                    Explore
+                                </span>
+
+                            </div>
+                        </div>
+
+                    </a>
+                </div>
+
+                <!-- French Wines -->
+                <div class="col-md-6 col-lg-4 scroll-3d"
+                     style="animation-delay:0.2s">
+
+                    <a href="wines-france.html" class="text-decoration-none">
+
+                        <div class="french-card card hover-3d shadow-sm">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=400&h=250&fit=crop&crop=center"
+                                class="card-img-top"
+                                alt="French Wines">
+
+                            <div class="card-body">
+
+                                <h5 class="card-title">
+                                    🍷 French Wines
+                                </h5>
+
+                                <p class="card-text">
+                                    Bordeaux, Burgundy, Champagne
+                                </p>
+
+                                <span class="card-tag">
+                                    Explore
+                                </span>
+
+                            </div>
+                        </div>
+
+                    </a>
+                </div>
+
+                <!-- French Desserts -->
+                <div class="col-md-6 col-lg-4 scroll-3d"
+                     style="animation-delay:0.25s">
+
+                    <a href="desserts-france.html" class="text-decoration-none">
+
+                        <div class="french-card card hover-3d shadow-sm">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=250&fit=crop&crop=center"
+                                class="card-img-top"
+                                alt="French Desserts">
+
+                            <div class="card-body">
+
+                                <h5 class="card-title">
+                                    🍰 French Desserts
+                                </h5>
+
+                                <p class="card-text">
+                                    Crème Brûlée, Tarte Tatin, Mille-Feuille
+                                </p>
+
+                                <span class="card-tag">
+                                    Explore
+                                </span>
+
+                            </div>
+                        </div>
+
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA SECTION ===== -->
+    <section class="cta-section scroll-3d">
+
+        <div class="container">
+
+            <h2>
+                Experience <span>French</span> Cuisine
+            </h2>
+
+            <p>
+                Book your table and explore authentic French flavors
+            </p>
+
+            <a href="../../reservations.html"
+               class="btn btn-gold btn-lg">
+
+                <i class="fas fa-calendar-check"></i>
+                Reserve Now
+
+            </a>
+
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-lg-4 mb-4">
+
+                    <h4>
+                        <i class="fas fa-utensils"></i>
+                        La Belle Vie
+                    </h4>
+
+                    <p>
+                        Fine dining restaurant offering the best cuisine
+                        from 10 countries around the world.
+                    </p>
+
+                   <div class="social-icons">
+                        <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/?hl=en"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+                    </div> 
+
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4">
+
+                    <h4>Quick Links</h4>
+
+                    <ul class="list-unstyled">
+
+                        <li>
+                            <a href="../../index.html">Home</a>
+                        </li>
+
+                        <li>
+                            <a href="../../about.html">About</a>
+                        </li>
+
+                        <li>
+                            <a href="../../menu.html">Menu</a>
+                        </li>
+
+                        <li>
+                            <a href="../../specials.html">Specials</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4">
+
+                    <h4>Pages</h4>
+
+                    <ul class="list-unstyled">
+
+                        <li>
+                            <a href="../../events.html">Events</a>
+                        </li>
+
+                        <li>
+                            <a href="../../gallery.html">Gallery</a>
+                        </li>
+
+                        <li>
+                            <a href="../../reservations.html">Reservations</a>
+                        </li>
+
+                        <li>
+                            <a href="../../blog.html">Blog</a>
+                        </li>
+
+                        <li>
+                            <a href="../../faq.html">FAQ</a>
+                        </li>
+
+                        <li>
+                            <a href="../../contact.html">Contact</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="col-lg-4 mb-4">
+
+                    <h4>Newsletter</h4>
+
+                    <p>
+                        Subscribe for exclusive offers and updates
+                    </p>
+
+                    <form id="newsletterForm" class="d-flex">
+
+                        <input
+                            type="email"
+                            class="form-control"
+                            placeholder="Your email"
+                            required>
+
+                        <button
+                            type="submit"
+                            class="btn btn-gold ms-2">
+
+                            <i class="fas fa-paper-plane"></i>
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+
+                <p>
+                    &copy; 2026 La Belle Vie.
+                    All rights reserved.
+                    Crafted with
+                    <i class="fas fa-heart"
+                       style="color:#C9A96E;">
+                    </i>
+                </p>
+
+                <p class="footer-links-bottom">
+
+                    <a href="../../privacy.html">
+                        Privacy Policy
+                    </a>
+                    |
+                    <a href="../../terms.html">
+                        Terms & Conditions
+                    </a>
+                    |
+                    <a href="../../sitemap.html">
+                        Sitemap
+                    </a>
+
+                </p>
+
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Main JavaScript -->
+    <script src="../../js/script.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            'use strict';
+
+            console.log('🇫🇷 French Cuisine Page Loaded Successfully!');
+            console.log('✨ Enhanced animations activated!');
+        });
+    </script>
+
+</body>
+</html>

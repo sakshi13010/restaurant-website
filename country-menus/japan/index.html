@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Japanese Cuisine - La Belle Vie</title>
+     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23722F37'/%3E%3Ctext x='50' y='72' font-size='60' text-anchor='middle' fill='%23C9A96E' font-family='Georgia,serif' font-weight='900'%3EL%3C/text%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23722F37'/%3E%3Ctext x='50' y='72' font-size='60' text-anchor='middle' fill='%23C9A96E' font-family='Georgia,serif' font-weight='900'%3EL%3C/text%3E%3C/svg%3E">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="../../css/style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- ================================
+         JAPANESE CUISINE IMAGE FIX
+         ================================ -->
+    <style>
+
+        /* Make all cards equal height */
+        .page-japan .food-card {
+            height: 100%;
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            background: #ffffff;
+            transition: transform 0.3s ease,
+                        box-shadow 0.3s ease;
+        }
+
+        /* Card hover effect */
+        .page-japan .food-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15) !important;
+        }
+
+        /* ================================
+           FOOD IMAGE
+           ================================ */
+
+        .page-japan .food-card .card-img-top {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            background-color: #f5f5f5;
+        }
+
+        /* ================================
+           CARD CONTENT
+           ================================ */
+
+        .page-japan .food-card .card-body {
+            min-height: 115px;
+            padding: 20px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .page-japan .food-card .card-title {
+            margin-bottom: 8px;
+            color: #222;
+            font-weight: 700;
+        }
+
+        .page-japan .food-card .card-text {
+            margin-bottom: 0;
+            line-height: 1.5;
+        }
+
+        /* Keep links clean */
+        .page-japan .food-link {
+            display: block;
+            height: 100%;
+            color: inherit;
+        }
+
+        .page-japan .food-link:hover {
+            color: inherit;
+        }
+
+        /* ================================
+           TABLET
+           ================================ */
+
+        @media (max-width: 991px) {
+
+            .page-japan .food-card .card-img-top {
+                height: 240px;
+            }
+
+        }
+
+        /* ================================
+           MOBILE
+           ================================ */
+
+        @media (max-width: 767px) {
+
+            .page-japan .food-card .card-img-top {
+                height: 230px;
+            }
+
+            .page-japan .food-card .card-body {
+                min-height: 105px;
+                padding: 18px;
+            }
+
+        }
+
+        /* ================================
+           SMALL MOBILE
+           ================================ */
+
+        @media (max-width: 480px) {
+
+            .page-japan .food-card .card-img-top {
+                height: 220px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body class="page-japan">
+
+
+    <!-- ================================
+         NAVIGATION
+         ================================ -->
+
+    <nav class="navbar navbar-expand-lg" id="navbar">
+
+        <div class="container">
+
+            <a href="../../index.html" class="nav-logo">
+                <i class="fas fa-utensils"></i>
+                La Belle Vie
+            </a>
+
+            <button class="navbar-toggler"
+                    id="navToggle"
+                    type="button">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <div class="collapse navbar-collapse" id="navMenu">
+
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a href="../../index.html"
+                           class="nav-link">
+                            Home
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="../../about.html"
+                           class="nav-link">
+                            About
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="../../menu.html"
+                           class="nav-link active">
+                            Menu
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="../../specials.html"
+                           class="nav-link">
+                            Specials
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="../../events.html"
+                           class="nav-link">
+                            Events
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="../../gallery.html"
+                           class="nav-link">
+                            Gallery
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="../../reservations.html"
+                           class="nav-link">
+                            Reservations
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="../../contact.html"
+                           class="nav-link">
+                            Contact
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ================================
+         HERO
+         ================================ -->
+
+    <section class="country-hero"
+             style="
+                background: linear-gradient(
+                    135deg,
+                    #bc002d 0%,
+                    #ffffff 100%
+                );
+                padding:80px 0 60px;
+                color:white;
+             ">
+
+        <div class="container">
+
+            <span class="flag-big scroll-3d">
+                🇯🇵
+            </span>
+
+            <h1 class="scroll-3d">
+                Japanese Cuisine
+            </h1>
+
+            <p class="scroll-3d">
+                Authentic Japanese flavors with precision and artistry
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================
+         JAPANESE FOOD CARDS
+         ================================ -->
+
+    <section class="py-5">
+
+        <div class="container">
+
+            <div class="row g-4">
+
+
+                <!-- SUSHI -->
+
+                <div class="col-md-6 col-lg-4 scroll-3d">
+
+                    <a href="sushi.html"
+                       class="text-decoration-none food-link">
+
+                        <div class="card food-card shadow-sm">
+
+                            <img
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRocN9-LAl5_CL7tjDvuP_Z0W4vyUMliz41hiDSlOTgridp2nlbUoJKv70&s=10"
+                                class="card-img-top"
+                                alt="Sushi"
+                                loading="lazy">
+
+                            <div class="card-body">
+
+                                <h5 class="card-title"
+                                    style="font-family:'Playfair Display',serif;">
+                                    🍣 Sushi
+                                </h5>
+
+                                <p class="card-text text-muted">
+                                    Fresh nigiri, sashimi, and maki rolls
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+
+                <!-- RAMEN -->
+
+                <div class="col-md-6 col-lg-4 scroll-3d"
+                     style="animation-delay:0.05s">
+
+                    <a href="ramen.html"
+                       class="text-decoration-none food-link">
+
+                        <div class="card food-card shadow-sm">
+
+                            <img
+                                src="https://peasandcrayons.com/wp-content/uploads/2020/04/spicy-vegetarian-ramen-recipe-3.jpg"
+                                class="card-img-top"
+                                alt="Ramen"
+                                loading="lazy">
+
+                            <div class="card-body">
+
+                                <h5 class="card-title"
+                                    style="font-family:'Playfair Display',serif;">
+                                    🍜 Ramen
+                                </h5>
+
+                                <p class="card-text text-muted">
+                                    Hearty noodle soups with rich broths
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+
+                <!-- TEMPURA -->
+
+                <div class="col-md-6 col-lg-4 scroll-3d"
+                     style="animation-delay:0.1s">
+
+                    <a href="tempura.html"
+                       class="text-decoration-none food-link">
+
+                        <div class="card food-card shadow-sm">
+
+                            <img
+                                src="https://sudachirecipes.com/wp-content/uploads/2024/01/tempura-soba-thumb.jpg"
+                                class="card-img-top"
+                                alt="Tempura"
+                                loading="lazy">
+
+                            <div class="card-body">
+
+                                <h5 class="card-title"
+                                    style="font-family:'Playfair Display',serif;">
+                                    🍤 Tempura
+                                </h5>
+
+                                <p class="card-text text-muted">
+                                    Lightly battered and fried seafood &amp; vegetables
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+
+                <!-- TERIYAKI -->
+
+                <div class="col-md-6 col-lg-4 scroll-3d"
+                     style="animation-delay:0.15s">
+
+                    <a href="teriyaki.html"
+                       class="text-decoration-none food-link">
+
+                        <div class="card food-card shadow-sm">
+
+                            <img
+                                src="https://www.onceuponachef.com/images/2024/01/chicken-teriyaki.jpg"
+                                class="card-img-top"
+                                alt="Teriyaki"
+                                loading="lazy">
+
+                            <div class="card-body">
+
+                                <h5 class="card-title"
+                                    style="font-family:'Playfair Display',serif;">
+                                    🥩 Teriyaki
+                                </h5>
+
+                                <p class="card-text text-muted">
+                                    Grilled meats with sweet soy glaze
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+
+                <!-- MATCHA -->
+
+                <div class="col-md-6 col-lg-4 scroll-3d"
+                     style="animation-delay:0.2s">
+
+                    <a href="matcha.html"
+                       class="text-decoration-none food-link">
+
+                        <div class="card food-card shadow-sm">
+
+                            <img
+                                src="https://www.modernfarmhouseeats.com/wp-content/uploads/2022/02/starbucks-iced-matcha-latte-8.jpg"
+                                class="card-img-top"
+                                alt="Matcha"
+                                loading="lazy">
+
+                            <div class="card-body">
+
+                                <h5 class="card-title"
+                                    style="font-family:'Playfair Display',serif;">
+                                    🍵 Matcha
+                                </h5>
+
+                                <p class="card-text text-muted">
+                                    Japanese green tea and desserts
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+
+                <!-- DONBURI -->
+
+                <div class="col-md-6 col-lg-4 scroll-3d"
+                     style="animation-delay:0.25s">
+
+                    <a href="donburi.html"
+                       class="text-decoration-none food-link">
+
+                        <div class="card food-card shadow-sm">
+
+                            <img
+                                src="https://iheartumami.com/wp-content/uploads/2019/10/Chicken-donburi-recipe.jpg"
+                                class="card-img-top"
+                                alt="Donburi"
+                                loading="lazy">
+
+                            <div class="card-body">
+
+                                <h5 class="card-title"
+                                    style="font-family:'Playfair Display',serif;">
+                                    🍚 Donburi
+                                </h5>
+
+                                <p class="card-text text-muted">
+                                    Rice bowls with various toppings
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================
+         FOOTER
+         ================================ -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="row">
+
+                <!-- ABOUT -->
+
+                <div class="col-lg-4 mb-4">
+
+                    <h4>
+                        <i class="fas fa-utensils"></i>
+                        La Belle Vie
+                    </h4>
+
+                    <p>
+                        Fine dining restaurant offering the best cuisine
+                        from 10 countries around the world.
+                    </p>
+
+                   <div class="social-icons">
+                        <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/?hl=en"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+                    </div>
+
+                </div>
+
+
+                <!-- QUICK LINKS -->
+
+                <div class="col-lg-2 col-md-6 mb-4">
+
+                    <h4>Quick Links</h4>
+
+                    <ul class="list-unstyled">
+
+                        <li>
+                            <a href="../../index.html">
+                                Home
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../../about.html">
+                                About
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../../menu.html">
+                                Menu
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../../specials.html">
+                                Specials
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- PAGES -->
+
+                <div class="col-lg-2 col-md-6 mb-4">
+
+                    <h4>Pages</h4>
+
+                    <ul class="list-unstyled">
+
+                        <li>
+                            <a href="../../events.html">
+                                Events
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../../gallery.html">
+                                Gallery
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../../reservations.html">
+                                Reservations
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../../contact.html">
+                                Contact
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- NEWSLETTER -->
+
+                <div class="col-lg-4 mb-4">
+
+                    <h4>Newsletter</h4>
+
+                    <p>
+                        Subscribe for exclusive offers and updates
+                    </p>
+
+                    <form id="newsletterForm"
+                          class="d-flex">
+
+                        <input
+                            type="email"
+                            class="form-control"
+                            placeholder="Your email"
+                            required>
+
+                        <button
+                            type="submit"
+                            class="btn btn-gold ms-2">
+
+                            <i class="fas fa-paper-plane"></i>
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+
+            <!-- FOOTER BOTTOM -->
+
+            <div class="footer-bottom">
+
+                <p>
+                    &copy; 2026 La Belle Vie.
+                    All rights reserved.
+                    Crafted with
+
+                    <i class="fas fa-heart"
+                       style="color:#C9A96E;">
+                    </i>
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================================
+         SCRIPTS
+         ================================ -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="../../js/script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Russian Cuisine - La Belle Vie</title>
+     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23722F37'/%3E%3Ctext x='50' y='72' font-size='60' text-anchor='middle' fill='%23C9A96E' font-family='Georgia,serif' font-weight='900'%3EL%3C/text%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23722F37'/%3E%3Ctext x='50' y='72' font-size='60' text-anchor='middle' fill='%23C9A96E' font-family='Georgia,serif' font-weight='900'%3EL%3C/text%3E%3C/svg%3E">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="../../css/style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+
+    <!-- ================================
+         RUSSIAN CUISINE CARD IMAGE FIX
+         ================================ -->
+    <style>
+
+        /* Make every food card equal height */
+        .page-moscow .food-card {
+            height: 100%;
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            background: #ffffff;
+            transition: transform 0.3s ease,
+                        box-shadow 0.3s ease;
+        }
+
+        /* Card hover effect */
+        .page-moscow .food-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15) !important;
+        }
+
+        /* ================================
+           IMAGE SIZE
+           ================================ */
+
+        .page-moscow .food-card .card-img-top {
+            width: 100%;
+            height: 260px;
+
+            /*
+             * Important:
+             * cover makes all different image sizes
+             * fit into the same card size.
+             */
+            object-fit: cover;
+
+            /*
+             * Keeps the important center part
+             * of the food image visible.
+             */
+            object-position: center;
+
+            display: block;
+            background-color: #f5f5f5;
+        }
+
+        /* ================================
+           CARD TEXT
+           ================================ */
+
+        .page-moscow .food-card .card-body {
+            min-height: 115px;
+            padding: 20px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .page-moscow .food-card .card-title {
+            margin-bottom: 8px;
+            color: #222;
+            font-weight: 700;
+        }
+
+        .page-moscow .food-card .card-text {
+            margin-bottom: 0;
+            line-height: 1.5;
+        }
+
+        /* Keep links from changing card appearance */
+        .page-moscow .food-link {
+            display: block;
+            height: 100%;
+            color: inherit;
+        }
+
+        .page-moscow .food-link:hover {
+            color: inherit;
+        }
+
+        /* ================================
+           TABLET
+           ================================ */
+
+        @media (max-width: 991px) {
+
+            .page-moscow .food-card .card-img-top {
+                height: 240px;
+            }
+
+        }
+
+        /* ================================
+           MOBILE
+           ================================ */
+
+        @media (max-width: 767px) {
+
+            .page-moscow .food-card .card-img-top {
+                height: 230px;
+            }
+
+            .page-moscow .food-card .card-body {
+                min-height: 105px;
+                padding: 18px;
+            }
+
+        }
+
+        /* ================================
+           SMALL MOBILE
+           ================================ */
+
+        @media (max-width: 480px) {
+
+            .page-moscow .food-card .card-img-top {
+                height: 220px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body class="page-moscow">
+
+
+    <!-- ================================
+         NAVIGATION
+         ================================ -->
+
+    <nav class="navbar navbar-expand-lg" id="navbar">
+
+        <div class="container">
+
+            <a href="../../index.html" class="nav-logo">
+                <i class="fas fa-utensils"></i>
+                La Belle Vie
+            </a>
+
+
+            <button class="navbar-toggler"
+                    id="navToggle"
+                    type="button">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+
+            <div class="collapse navbar-collapse" id="navMenu">
+
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a href="../../index.html"
+                           class="nav-link">
+                            Home
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="../../about.html"
+                           class="nav-link">
+                            About
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="../../menu.html"
+                           class="nav-link active">
+                            Menu
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="../../specials.html"
+                           class="nav-link">
+                            Specials
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="../../events.html"
+                           class="nav-link">
+                            Events
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="../../gallery.html"
+                           class="nav-link">
+                            Gallery
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="../../reservations.html"
+                           class="nav-link">
+                            Reservations
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="../../contact.html"
+                           class="nav-link">
+                            Contact
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ================================
+         HERO SECTION
+         ================================ -->
+
+    <section class="country-hero"
+             style="
+                background: linear-gradient(
+                    135deg,
+                    #d52b1e 0%,
+                    #0039a6 100%
+                );
+                padding:80px 0 60px;
+                color:white;
+             ">
+
+        <div class="container">
+
+            <span class="flag-big scroll-3d">
+                🇷🇺
+            </span>
+
+            <h1 class="scroll-3d">
+                Russian Cuisine
+            </h1>
+
+            <p class="scroll-3d">
+                Hearty and comforting Russian dishes
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================
+         FOOD CARDS
+         ================================ -->
+
+    <section class="py-5">
+
+        <div class="container">
+
+            <div class="row g-4">
+
+
+                <!-- ================================
+                     BORSCHT
+                     ================================ -->
+
+                <div class="col-md-6 col-lg-4 scroll-3d">
+
+                    <a href="borscht.html"
+                       class="text-decoration-none food-link">
+
+                        <div class="card food-card shadow-sm">
+
+                            <img
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfmqs4DLhxsyjUI6DQYJFmWS8LMLQMsHa8JMmixNA5VpnY2ceZGZ6H6-s9&s=10"
+                                class="card-img-top"
+                                alt="Borscht"
+                                loading="lazy">
+
+                            <div class="card-body">
+
+                                <h5 class="card-title"
+                                    style="font-family:'Playfair Display',serif;">
+                                    🥣 Borscht
+                                </h5>
+
+                                <p class="card-text text-muted">
+                                    Classic beet soup with sour cream
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+
+                <!-- ================================
+                     PELMENI
+                     ================================ -->
+
+                <div class="col-md-6 col-lg-4 scroll-3d"
+                     style="animation-delay:0.05s">
+
+                    <a href="pelmeni.html"
+                       class="text-decoration-none food-link">
+
+                        <div class="card food-card shadow-sm">
+
+                            <img
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROb39nnl4AOVAQ-HvGJY-d9w_66FnMjII4A3-mU7OIbQBXyo_Ms7_Em4E&s=10"
+                                class="card-img-top"
+                                alt="Pelmeni"
+                                loading="lazy">
+
+                            <div class="card-body">
+
+                                <h5 class="card-title"
+                                    style="font-family:'Playfair Display',serif;">
+                                    🥟 Pelmeni
+                                </h5>
+
+                                <p class="card-text text-muted">
+                                    Meat-filled Siberian dumplings
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+
+                <!-- ================================
+                     BLINI
+                     ================================ -->
+
+                <div class="col-md-6 col-lg-4 scroll-3d"
+                     style="animation-delay:0.1s">
+
+                    <a href="blini.html"
+                       class="text-decoration-none food-link">
+
+                        <div class="card food-card shadow-sm">
+
+                            <img
+                                src="https://vikalinka.com/wp-content/uploads/2019/09/Russian-Crepes-Blini-20-Edit.jpg"
+                                class="card-img-top"
+                                alt="Blini"
+                                loading="lazy">
+
+                            <div class="card-body">
+
+                                <h5 class="card-title"
+                                    style="font-family:'Playfair Display',serif;">
+                                    🥞 Blini
+                                </h5>
+
+                                <p class="card-text text-muted">
+                                    Traditional Russian pancakes
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+
+                <!-- ================================
+                     BEEF STROGANOFF
+                     ================================ -->
+
+                <div class="col-md-6 col-lg-4 scroll-3d"
+                     style="animation-delay:0.15s">
+
+                    <a href="beef-stroganoff.html"
+                       class="text-decoration-none food-link">
+
+                        <div class="card food-card shadow-sm">
+
+                            <img
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQl2ppxniWNIUM8o94RLUyI3FfQSswdmpA6v_2gTllVT9Z7al86JsFi7Ak&s=10"
+                                class="card-img-top"
+                                alt="Beef Stroganoff"
+                                loading="lazy">
+
+                            <div class="card-body">
+
+                                <h5 class="card-title"
+                                    style="font-family:'Playfair Display',serif;">
+                                    🥩 Beef Stroganoff
+                                </h5>
+
+                                <p class="card-text text-muted">
+                                    Tender beef in creamy mushroom sauce
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+
+                <!-- ================================
+                     CAVIAR
+                     ================================ -->
+
+                <div class="col-md-6 col-lg-4 scroll-3d"
+                     style="animation-delay:0.2s">
+
+                    <a href="caviar.html"
+                       class="text-decoration-none food-link">
+
+                        <div class="card food-card shadow-sm">
+
+                            <img
+                                src="https://caviarbaruk.com/cdn/shop/articles/oscietra-caviar-tasting-board_67faaf8e-c117-44d9-9fee-f9c6189497c0.webp?v=1782667051&width=1200"
+                                class="card-img-top"
+                                alt="Russian Caviar"
+                                loading="lazy">
+
+                            <div class="card-body">
+
+                                <h5 class="card-title"
+                                    style="font-family:'Playfair Display',serif;">
+                                    🫧 Caviar
+                                </h5>
+
+                                <p class="card-text text-muted">
+                                    Premium Russian caviar selection
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+
+                <!-- ================================
+                     RUSSIAN DESSERTS
+                     ================================ -->
+
+                <div class="col-md-6 col-lg-4 scroll-3d"
+                     style="animation-delay:0.25s">
+
+                    <a href="desserts-russia.html"
+                       class="text-decoration-none food-link">
+
+                        <div class="card food-card shadow-sm">
+
+                            <img
+                                src="https://images.squarespace-cdn.com/content/v1/5954229fa5790add5f5c0b37/6d0695a1-98e2-4a41-afc2-7499dab39f76/Russian-famous-cakes-image-Polyglottist-Language-Academy.png"
+                                class="card-img-top"
+                                alt="Russian Desserts"
+                                loading="lazy">
+
+                            <div class="card-body">
+
+                                <h5 class="card-title"
+                                    style="font-family:'Playfair Display',serif;">
+                                    🍰 Russian Desserts
+                                </h5>
+
+                                <p class="card-text text-muted">
+                                    Medovik, Pirozhki, and more
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================
+         FOOTER
+         ================================ -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="row">
+
+
+                <!-- ABOUT -->
+
+                <div class="col-lg-4 mb-4">
+
+                    <h4>
+                        <i class="fas fa-utensils"></i>
+                        La Belle Vie
+                    </h4>
+
+                    <p>
+                        Fine dining restaurant offering the best cuisine
+                        from 10 countries around the world.
+                    </p>
+
+              <div class="social-icons">
+                        <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/?hl=en"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+                    </div>
+
+                </div>
+
+
+                <!-- QUICK LINKS -->
+
+                <div class="col-lg-2 col-md-6 mb-4">
+
+                    <h4>Quick Links</h4>
+
+                    <ul class="list-unstyled">
+
+                        <li>
+                            <a href="../../index.html">
+                                Home
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../../about.html">
+                                About
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../../menu.html">
+                                Menu
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../../specials.html">
+                                Specials
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- PAGES -->
+
+                <div class="col-lg-2 col-md-6 mb-4">
+
+                    <h4>Pages</h4>
+
+                    <ul class="list-unstyled">
+
+                        <li>
+                            <a href="../../events.html">
+                                Events
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../../gallery.html">
+                                Gallery
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../../reservations.html">
+                                Reservations
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../../contact.html">
+                                Contact
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- NEWSLETTER -->
+
+                <div class="col-lg-4 mb-4">
+
+                    <h4>Newsletter</h4>
+
+                    <p>
+                        Subscribe for exclusive offers and updates
+                    </p>
+
+                    <form id="newsletterForm"
+                          class="d-flex">
+
+                        <input
+                            type="email"
+                            class="form-control"
+                            placeholder="Your email"
+                            required>
+
+                        <button
+                            type="submit"
+                            class="btn btn-gold ms-2">
+
+                            <i class="fas fa-paper-plane"></i>
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+
+            <!-- FOOTER BOTTOM -->
+
+            <div class="footer-bottom">
+
+                <p>
+                    &copy; 2026 La Belle Vie.
+                    All rights reserved.
+                    Crafted with
+
+                    <i class="fas fa-heart"
+                       style="color:#C9A96E;">
+                    </i>
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================================
+         SCRIPTS
+         ================================ -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="../../js/script.js"></script>
+
+</body>
+</html>

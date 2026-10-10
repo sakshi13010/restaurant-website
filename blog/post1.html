@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Art of French Cuisine - La Belle Vie</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23722F37'/%3E%3Ctext x='50' y='72' font-size='60' text-anchor='middle' fill='%23C9A96E' font-family='Georgia,serif' font-weight='900'%3EL%3C/text%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23722F37'/%3E%3Ctext x='50' y='72' font-size='60' text-anchor='middle' fill='%23C9A96E' font-family='Georgia,serif' font-weight='900'%3EL%3C/text%3E%3C/svg%3E">
+
+    <!-- Google Translate API -->
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        /* ===== ADDITIONAL BLOG POST PAGE STYLES ===== */
+
+        /* Page Header with parallax - FIXED */
+        .page-header {
+            position: relative;
+            overflow: hidden;
+            padding: 120px 0 80px;
+            background: linear-gradient(135deg, #2d3436 0%, #002395 100%) !important;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1920&q=80') center/cover;
+            opacity: 0.12;
+            animation: heroZoomSlow 25s ease-in-out infinite alternate;
+        }
+
+        @keyframes heroZoomSlow {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+            100% { transform: scale(1.15); }
+        }
+
+        .page-header .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-header h1 {
+            color: #ffffff !important;
+            text-shadow: 0 2px 30px rgba(0,0,0,0.4);
+        }
+
+        .page-header h1 span {
+            color: #ed2939 !important;
+        }
+
+        .page-header p {
+            color: rgba(255,255,255,0.95) !important;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+
+        .page-header .badge {
+            color: #ffffff !important;
+        }
+
+        .page-header .badge i {
+            color: #ed2939 !important;
+        }
+
+        /* Blog Post Content Styles */
+        .post-card {
+            border: none;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+            padding: 40px;
+            background: white;
+            transition: all 0.5s ease;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .post-card:hover {
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+        }
+
+        .post-card .featured-image {
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 25px;
+        }
+
+        .post-card .featured-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .post-card .featured-image:hover img {
+            transform: scale(1.03);
+        }
+
+        .post-card .post-meta {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .post-card .post-meta i {
+            color: #C9A96E;
+            margin-right: 5px;
+        }
+
+        .post-card .post-meta span {
+            margin-right: 20px;
+        }
+
+        .post-card h2 {
+            font-family: 'Playfair Display', serif;
+            color: #722F37;
+            font-size: 2rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .post-card h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(135deg, #C9A96E, #722F37);
+            border-radius: 4px;
+        }
+
+        .post-card p {
+            color: #555;
+            line-height: 1.9;
+            font-size: 1.05rem;
+            margin-bottom: 18px;
+        }
+
+        .post-card .btn-outline-gold {
+            padding: 10px 30px;
+            border-radius: 50px;
+            border: 2px solid #C9A96E;
+            background: transparent;
+            color: #722F37;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .post-card .btn-outline-gold:hover {
+            background: #C9A96E;
+            color: #1a1a1a;
+            transform: translateX(-5px);
+            box-shadow: 0 10px 30px rgba(201, 169, 110, 0.3);
+        }
+
+        /* Floating badge animation */
+        .floating-badge {
+            animation: floatBadge 4s ease-in-out infinite;
+        }
+
+        @keyframes floatBadge {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Share buttons */
+        .share-buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .share-buttons .share-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            color: white;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        .share-buttons .share-btn:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .share-buttons .share-btn.facebook { background: #3b5998; }
+        .share-buttons .share-btn.twitter { background: #1da1f2; }
+        .share-buttons .share-btn.instagram { background: #e4405f; }
+        .share-buttons .share-btn.linkedin { background: #0077b5; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.8rem !important;
+            }
+            .page-header p {
+                font-size: 1.1rem !important;
+            }
+            .post-card {
+                padding: 25px;
+            }
+            .post-card .featured-image img {
+                height: 250px;
+            }
+            .post-card h2 {
+                font-size: 1.6rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-header h1 {
+                font-size: 2.2rem !important;
+            }
+            .page-header p {
+                font-size: 1rem !important;
+            }
+            .post-card {
+                padding: 20px;
+            }
+            .post-card .featured-image img {
+                height: 200px;
+            }
+            .post-card h2 {
+                font-size: 1.3rem;
+            }
+            .post-card p {
+                font-size: 0.95rem;
+            }
+            .share-buttons .share-btn {
+                width: 38px;
+                height: 38px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body class="page-blog">
+
+    <!-- Google Translate Element (Hidden) -->
+    <div id="google_translate_element" style="display:none;"></div>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="navbar navbar-expand-lg" id="navbar">
+        <div class="container">
+            <a href="../index.html" class="nav-logo">
+                <i class="fas fa-utensils"></i> La Belle Vie
+            </a>
+            <button class="navbar-toggler" id="navToggle" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="../about.html" class="nav-link">About</a></li>
+
+                    <!-- MENU DROPDOWN -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="menuDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Menus
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="menuDropdown">
+                            <li><a class="dropdown-item" href="../menu.html">🍽️ Main Menu</a></li>
+                            <li><a class="dropdown-item" href="../friends-menu/index.html">🤝 Friends Menu</a></li>
+                            <li><a class="dropdown-item" href="../italian-menu/index.html">🇮🇹 Italian Menu</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="../specials.html">⭐ Daily Specials</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item"><a href="../events.html" class="nav-link">Events</a></li>
+                    <li class="nav-item"><a href="../gallery.html" class="nav-link">Gallery</a></li>
+                    <li class="nav-item"><a href="../reservations.html" class="nav-link">Reservations</a></li>
+                    <li class="nav-item"><a href="../blog.html" class="nav-link active">Blog</a></li>
+                    <li class="nav-item"><a href="../faq.html" class="nav-link">FAQ</a></li>
+                    <li class="nav-item"><a href="../contact.html" class="nav-link">Contact</a></li>
+
+                    <!-- 🌍 TRANSLATE BUTTON -->
+                    <li class="nav-item dropdown">
+                        <button class="btn btn-gold btn-sm dropdown-toggle" id="translateBtn" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-language"></i> Translate
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="translateBtn">
+                            <li><a class="dropdown-item translate-option" data-lang="en" href="#"><i class="fas fa-check text-success"></i> 🇬🇧 English</a></li>
+                            <li><a class="dropdown-item translate-option" data-lang="es" href="#"><i class="fas fa-check text-success" style="display:none;"></i> 🇪🇸 Español</a></li>
+                            <li><a class="dropdown-item translate-option" data-lang="fr" href="#"><i class="fas fa-check text-success" style="display:none;"></i> 🇫🇷 Français</a></li>
+                            <li><a class="dropdown-item translate-option" data-lang="de" href="#"><i class="fas fa-check text-success" style="display:none;"></i> 🇩🇪 Deutsch</a></li>
+                            <li><a class="dropdown-item translate-option" data-lang="it" href="#"><i class="fas fa-check text-success" style="display:none;"></i> 🇮🇹 Italiano</a></li>
+                            <li><a class="dropdown-item translate-option" data-lang="pt" href="#"><i class="fas fa-check text-success" style="display:none;"></i> 🇵🇹 Português</a></li>
+                            <li><a class="dropdown-item translate-option" data-lang="ru" href="#"><i class="fas fa-check text-success" style="display:none;"></i> 🇷🇺 Русский</a></li>
+                            <li><a class="dropdown-item translate-option" data-lang="ja" href="#"><i class="fas fa-check text-success" style="display:none;"></i> 🇯🇵 日本語</a></li>
+                            <li><a class="dropdown-item translate-option" data-lang="zh" href="#"><i class="fas fa-check text-success" style="display:none;"></i> 🇨🇳 中文</a></li>
+                            <li><a class="dropdown-item translate-option" data-lang="hi" href="#"><i class="fas fa-check text-success" style="display:none;"></i> 🇮🇳 हिन्दी</a></li>
+                            <li><a class="dropdown-item translate-option" data-lang="ar" href="#"><i class="fas fa-check text-success" style="display:none;"></i> 🇸🇦 العربية</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" id="resetLanguage" href="#"><i class="fas fa-undo"></i> Reset to English</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== PAGE HEADER ===== -->
+    <section class="page-header" style="background: linear-gradient(135deg, #2d3436 0%, #002395 100%); color:white; padding:120px 0 80px;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center">
+                    <span class="badge floating-badge" style="background:rgba(255,255,255,0.12); color:#ffffff !important; padding:8px 20px; font-size:0.8rem; letter-spacing:2px; margin-bottom:15px; backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,0.1);">
+                        <i class="fas fa-pen-fancy" style="color:#ed2939;"></i> BLOG POST
+                    </span>
+                    <h1 class="scroll-3d" style="font-size:4rem; font-weight:900; font-family:'Playfair Display',serif; color:#ffffff;">
+                        The Art of <span style="color:#ed2939;">French Cuisine</span>
+                    </h1>
+                    <p class="scroll-3d" style="font-size:1.4rem; color:rgba(255,255,255,0.95) !important; max-width:600px; margin:15px auto 0; text-shadow:0 2px 20px rgba(0,0,0,0.3);">
+                        Discover the secrets behind France's most beloved dishes
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BLOG POST CONTENT ===== -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto scroll-3d">
+                    <div class="post-card">
+                        <div class="featured-image">
+                            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&h=400&fit=crop&crop=center" alt="French Cuisine">
+                        </div>
+                        
+                        <div class="post-meta">
+                            <span><i class="far fa-calendar-alt"></i> January 15, 2026</span>
+                            <span><i class="far fa-user"></i> Chef Antonio Rossi</span>
+                            <span><i class="far fa-clock"></i> 8 min read</span>
+                            <span><i class="fas fa-tag"></i> French Cuisine</span>
+                        </div>
+
+                        <h2>The Elegance of French Cooking</h2>
+                        <p>French cuisine is renowned worldwide for its elegance, precision, and rich flavors. At La Belle Vie, we honor this tradition by bringing authentic French techniques to every dish we serve.</p>
+                        
+                        <p>From the buttery perfection of a classic croissant to the complex layers of a Coq au Vin, French cooking is an art form that requires patience, skill, and passion. The French philosophy of cooking is rooted in the belief that food should be celebrated and savored, not merely consumed.</p>
+                        
+                        <p>Our team of chefs has studied in the finest culinary schools of France, bringing decades of experience to our kitchen. We believe that every dish tells a story, and French cuisine tells the story of love, tradition, and excellence.</p>
+                        
+                        <p>Whether you're enjoying our signature Bouillabaisse or savoring a delicate Crème Brûlée, you're experiencing centuries of culinary heritage perfected by generations of French chefs.</p>
+
+                        <h2>The Secrets Behind French Cuisine</h2>
+                        <p>French cooking is built on a foundation of fundamental techniques that have been passed down through generations. The mother sauces, the art of pastry, and the precision of knife work are all essential components of French culinary mastery.</p>
+                        
+                        <p>At La Belle Vie, we take pride in preserving these traditions while adding our own creative touch. Our chefs work with only the finest ingredients, sourced locally and internationally, to create dishes that are both authentic and innovative.</p>
+
+                        <div style="background: #f8f5f0; padding: 20px; border-radius: 12px; margin: 25px 0; border-left: 4px solid #C9A96E;">
+                            <p style="margin: 0; font-style: italic; color: #722F37;">
+                                <i class="fas fa-quote-left" style="color: #C9A96E; margin-right: 10px;"></i>
+                                French cooking is not just about food; it's about sharing joy, creating memories, and celebrating life.
+                            </p>
+                        </div>
+
+                        <p>We invite you to experience the art of French cuisine at La Belle Vie. Whether you're a connoisseur or a curious beginner, our team is dedicated to providing you with an unforgettable dining experience.</p>
+
+                        <!-- Share Buttons -->
+                        <div class="share-buttons">
+                            <span style="font-weight:600; color:#555; margin-right:10px;">Share:</span>
+                            <a href="#" class="share-btn facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="share-btn twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="share-btn instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="share-btn linkedin"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+
+                        <a href="../blog.html" class="btn btn-outline-gold mt-4">
+                            <i class="fas fa-arrow-left"></i> Back to Blog
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA SECTION ===== -->
+    <section class="cta-section scroll-3d">
+        <div class="container">
+            <h2>Enjoyed This <span>Article</span>?</h2>
+            <p>Subscribe to our newsletter for more stories and recipes</p>
+            <a href="../contact.html" class="btn btn-gold btn-lg"><i class="fas fa-envelope"></i> Subscribe Now</a>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h4><i class="fas fa-utensils"></i> La Belle Vie</h4>
+                    <p>Fine dining restaurant offering the best cuisine from 10 countries around the world.</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/?hl=en"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h4>Quick Links</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../about.html">About</a></li>
+                        <li><a href="../menu.html">Menu</a></li>
+                        <li><a href="../specials.html">Specials</a></li>
+                        <li><a href="../events.html">Events</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h4>Pages</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="../gallery.html">Gallery</a></li>
+                        <li><a href="../reservations.html">Reservations</a></li>
+                        <li><a href="../blog.html">Blog</a></li>
+                        <li><a href="../faq.html">FAQ</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe for exclusive offers and updates</p>
+                    <form id="newsletterForm" class="d-flex">
+                        <input type="email" class="form-control" placeholder="Your email" required>
+                        <button type="submit" class="btn btn-gold ms-2"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 La Belle Vie. All rights reserved. Crafted with <i class="fas fa-heart" style="color:#C9A96E;"></i></p>
+                <p class="footer-links-bottom">
+                    <a href="../privacy.html">Privacy Policy</a> | 
+                    <a href="../terms.html">Terms & Conditions</a> | 
+                    <a href="../sitemap.html">Sitemap</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/script.js"></script>
+
+    <!-- ===== ADDITIONAL BLOG POST SCRIPTS ===== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            'use strict';
+
+            // ========================================
+            // PARALLAX EFFECT ON PAGE HEADER
+            // ========================================
+            const pageHeader = document.querySelector('.page-header');
+            if (pageHeader) {
+                window.addEventListener('scroll', function() {
+                    const scrolled = window.pageYOffset;
+                    if (scrolled < 600) {
+                        const content = pageHeader.querySelector('.container');
+                        if (content) {
+                            content.style.transform = `translateY(${scrolled * 0.1}px)`;
+                            content.style.opacity = 1 - (scrolled / 700);
+                        }
+                    }
+                });
+            }
+
+            console.log('📝 Blog Post Page Loaded Successfully!');
+            console.log('✨ Enhanced animations activated!');
+        });
+    </script>
+</body>
+</html>
